@@ -95,7 +95,8 @@ namespace LibClient
         protected abstract void createSocketAndConnect();
         public abstract Output handleConntectionAndMessagesToServer();
         protected abstract Message processMessage(Message message);
-
+        protected abstract void sendMsgClient(Message input, IPEndPoint destinationIPEndPoint, Socket sock);
+        protected abstract string[] receiveMsgClient(Socket sock);
 
 
     }
@@ -112,6 +113,8 @@ namespace LibClient
         public IPEndPoint serverEndPoint;
         public IPAddress ipAddress;
 
+        public byte[] buffer = new byte[1000];
+        Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
 
         public string client_id;
@@ -166,15 +169,12 @@ namespace LibClient
 
             string stringToSent = "Client: Hello Server";
 
-
-
+            //bytes zelfde als buffer??
             byte[] bytes = new byte[1024];
+
             IPAddress ipAddress = IPAddress.Parse(settings.ServerIPAddress);
             IPEndPoint remoteIp = new IPEndPoint(ipAddress, settings.ServerPortNumber);
 
-
-
-            Socket s = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
 
 
 
@@ -184,7 +184,7 @@ namespace LibClient
                 Console.WriteLine($"Socket connected to {s.RemoteEndPoint.ToString()}");
 
 
-
+                /*
                 byte[] msg = Encoding.ASCII.GetBytes(stringToSent);
                 int bytesSent = s.Send(msg);
                 int bytesRecieved = s.Receive(bytes);
@@ -192,15 +192,15 @@ namespace LibClient
 
 
                 string RecievedString = Encoding.ASCII.GetString(bytes, 0, bytesRecieved);
+                */
 
 
-
-                s.Close();
+                //s.Close();
             }
 
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Console.WriteLine(e.Message);
             }
 
 
@@ -222,12 +222,19 @@ namespace LibClient
 
 
             //todo: To meet the assignment requirement, finish the implementation of this method.
-            // try
-            // {
+            try
+            {
+                Message hello = new Message();
+                hello.Type = MessageType.Hello;
+                hello.Content = this.client_id;
 
+                sendMsgClient(hello, serverEndPoint, s);
 
-            // }
-            // catch () { }
+            }
+            catch (Exception e) 
+            {
+                Console.WriteLine(e.Message);
+            }
 
 
 
@@ -257,5 +264,24 @@ namespace LibClient
 
             return processedMsgResult;
         }
+
+        protected override void sendMsgClient(Message input, IPEndPoint destinationIPEndPoint, Socket sock)
+        {
+            string inputString = JsonSerializer.Serialize(input);
+            byte[] msg = Encoding.ASCII.GetBytes(inputString);
+            sock.SendTo(msg, msg.Length, SocketFlags.None, destinationIPEndPoint);
+            Console.WriteLine("Sending message to server");
+        }
+
+        protected override string[] receiveMsgClient(Socket sock)
+        {
+            int receiveBytes = sock.Receive(buffer);
+            string data = Encoding.ASCII.GetString(buffer, 0, receiveBytes);
+            string[] typeAndContent = new string[2];
+            typeAndContent = data.Split(",");
+            Console.WriteLine(typeAndContent[0] + typeAndContent[1] + " - Received from server with receiveMsgClient");
+            return typeAndContent;
+        }
+
     }
 }

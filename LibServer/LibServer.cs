@@ -86,18 +86,11 @@ namespace LibServerSolution
 
         protected abstract void createSocketAndConnectHelpers();
 
-
-
         public abstract void handelListening();
-
-
 
         protected abstract Message processMessage(Message message);
 
         protected abstract Message requestDataFromHelpers(string msg);
-
-
-
 
     }
 
@@ -110,8 +103,6 @@ namespace LibServerSolution
         IPEndPoint listeningPoint;
         Socket bookHelperSocket;
         byte[] buffer;
-
-
 
 
         public SequentialServer() : base()
@@ -129,23 +120,13 @@ namespace LibServerSolution
             // Extra Note: If failed to connect to helper. Server should retry 3 times.
             // After the 3d attempt the server starts anyway and listen to incoming messages to clients
 
-
-
             string stringToSent = "Server: Hello client";
-
-
 
             IPAddress ipAddress = IPAddress.Parse(settings.ServerIPAddress);
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, settings.ServerPortNumber);
-
-
-
+       
             try
             {
-
-
-
-
                 serverSocket.Bind(localEndPoint);
                 Console.WriteLine("Waiting for connection...");
                 serverSocket.Listen(settings.ServerListeningQueue);
@@ -213,7 +194,7 @@ namespace LibServerSolution
             catch (Exception e)
             {
 
-
+                Console.WriteLine(e.Message);
 
             }
 

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "4D3Z18K5bLOfDgc4pvBXh6nDwooGP1ypXnEjtbRYf+tXNO7X+z4H/17nJ2jcU+/eghV6Qwz5/J9QiFurAZaYTA==",
+  "dgSpecHash": "NFL7wD0jbdW+wxUrwm5Hf7pxS+zqLM+gg73XgCsC/PZgSWF78tkVkL0T+ZJgn1MFxRLvjdnaprkeCtu4qEV4Xg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\LibClient.csproj",
+  "projectFilePath": "C:\\Users\\tobiz\\source\\repos\\RetakeANL5\\LibClient\\LibClient.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\tobiz\\.nuget\\packages\\microsoft.extensions.configuration\\6.0.0\\microsoft.extensions.configuration.6.0.0.nupkg.sha512",
     "C:\\Users\\tobiz\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\6.0.0\\microsoft.extensions.configuration.abstractions.6.0.0.nupkg.sha512",

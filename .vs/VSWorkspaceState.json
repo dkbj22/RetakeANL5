@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\LibBookHelper"
   ],
-  "SelectedNode": "\\DistLibrary.sln",
+  "SelectedNode": "\\LibBookHelper\\BooksHelper.cs",
   "PreviewInSolutionExplorer": false
 }
