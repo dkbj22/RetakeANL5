@@ -10,7 +10,7 @@ using Microsoft.Extensions.Configuration;
 
 namespace BookHelperSolution
 {
-    public struct Setting
+    public struct Setting                                   
     {
         public int BookHelperPortNumber { get; set; }
         public string BookHelperIPAddress { get; set; }
@@ -90,14 +90,17 @@ namespace BookHelperSolution
         protected override void loadDataFromJson()
         {
             //todo: To meet the assignment requirement, implement this method 
-            // try
-            // {
-
-            // }
-            // catch (Exception e)
-            // {
-
-            // }
+            try
+            {
+                BookData jsnBook;
+                string configContent = File.ReadAllText(booksDataFile);
+                jsnBook = JsonSerializer.Deserialize<BookData>(configContent);
+                Console.WriteLine(jsnBook);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
         }
 
         /// <summary>
@@ -106,15 +109,19 @@ namespace BookHelperSolution
         protected override void createSocket()
         {
             //todo: To meet the assignment requirement, implement this method
-            // try
-            // {
+            listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                listener.Bind(listeningPoint);
+                Console.WriteLine("Socket binding");
+                listener.Listen(settings.ServerListeningQueue);
+                Console.WriteLine("Listening... (bookhelpserver)");
 
-
-            // }
-            // catch (Exception e)
-            // {
-
-            // }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
         }
 
@@ -136,10 +143,20 @@ namespace BookHelperSolution
         /// <summary>
         /// This method handles all the communications with the LibServer.
         /// </summary>
+        
+
+
         public override void handelListening()
         {
             createSocket();
+            loadDataFromJson();
+
             //todo: To meet the assignment requirement, finish the implementation of this method 
+            while (true)
+            {
+                break;
+            }
+
 
         }
 
