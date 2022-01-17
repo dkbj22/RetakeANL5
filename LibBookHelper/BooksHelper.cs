@@ -109,17 +109,22 @@ namespace BookHelperSolution
         protected override void createSocket()
         {
             //todo: To meet the assignment requirement, implement this method
+            ipAddress = IPAddress.Parse(settings.BookHelperIPAddress);
+            listeningPoint = new IPEndPoint(ipAddress, settings.BookHelperPortNumber);
+
             listener = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+
             try
             {
                 listener.Bind(listeningPoint);
                 Console.WriteLine("Socket binding");
                 listener.Listen(settings.ServerListeningQueue);
-                Console.WriteLine("Listening... (bookhelpserver)");
+                Console.WriteLine("Listening...");
 
             }
             catch (Exception e)
             {
+                Console.WriteLine("Error in createSocket()");
                 Console.WriteLine(e.Message);
             }
 
