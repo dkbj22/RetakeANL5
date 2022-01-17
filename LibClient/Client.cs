@@ -199,7 +199,7 @@ namespace LibClient
                 */
 
 
-                //s.Close();
+                s.Close();
             }
 
             catch (Exception e)
