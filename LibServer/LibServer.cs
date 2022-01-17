@@ -93,7 +93,6 @@ namespace LibServerSolution
         protected abstract Message requestDataFromHelpers(string msg);
 
         protected abstract string[] receiveMsg(Socket sock);
-
     }
 
 
@@ -177,17 +176,16 @@ namespace LibServerSolution
         public override void handelListening()
         {
             createSocketAndConnectHelpers();
-            //todo: To meet the assignment requirement, finish the implementation of this method.
-
-
+            //todo: To meet the assignment requirement, finish the implementation of this method
 
             while (true)
             {
                 try
                 {
                     Socket newSock = serverSocket.Accept();
-
-                    string[] typeAndContent = receiveMsg(serverSocket);
+                    Console.WriteLine("Socket accepted\n");
+                    string[] typeAndContent = receiveMsg(newSock);
+                    Console.WriteLine("message from client recieved\n");
                     Console.WriteLine(typeAndContent);
 
                     // WORDT GEREGELD IN receiveMsg() V
@@ -338,7 +336,7 @@ namespace LibServerSolution
         }
 
         protected override string[] receiveMsg(Socket sock)
-        {
+        { 
             int receiveBytes = sock.Receive(buffer);
             string data = Encoding.ASCII.GetString(buffer, 0, receiveBytes);
             string[] typeAndContent = new string[2];

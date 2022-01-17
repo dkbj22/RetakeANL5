@@ -26,3 +26,31 @@ C:\Users\tobiz\source\repos\RetakeANL5\LibClient\obj\Debug\net5.0\LibClient.dll
 C:\Users\tobiz\source\repos\RetakeANL5\LibClient\obj\Debug\net5.0\ref\LibClient.dll
 C:\Users\tobiz\source\repos\RetakeANL5\LibClient\obj\Debug\net5.0\LibClient.pdb
 C:\Users\tobiz\source\repos\RetakeANL5\LibClient\obj\Debug\net5.0\LibClient.genruntimeconfig.cache
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\LibClient.exe
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\LibClient.deps.json
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\LibClient.runtimeconfig.json
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\LibClient.runtimeconfig.dev.json
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\LibClient.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\ref\LibClient.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\LibClient.pdb
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\Microsoft.Extensions.Configuration.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\Microsoft.Extensions.Configuration.FileExtensions.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\Microsoft.Extensions.Configuration.Json.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Abstractions.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\Microsoft.Extensions.FileProviders.Physical.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\Microsoft.Extensions.FileSystemGlobbing.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\Microsoft.Extensions.Primitives.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\System.Runtime.CompilerServices.Unsafe.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\System.Text.Encodings.Web.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\bin\Debug\net5.0\System.Text.Json.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\obj\Debug\net5.0\LibClient.csproj.AssemblyReference.cache
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\obj\Debug\net5.0\LibClient.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\obj\Debug\net5.0\LibClient.AssemblyInfoInputs.cache
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\obj\Debug\net5.0\LibClient.AssemblyInfo.cs
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\obj\Debug\net5.0\LibClient.csproj.CoreCompileInputs.cache
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\obj\Debug\net5.0\LibClient.csproj.CopyComplete
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\obj\Debug\net5.0\LibClient.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\obj\Debug\net5.0\ref\LibClient.dll
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\obj\Debug\net5.0\LibClient.pdb
+C:\Users\dkbj2\Documents\Studie\Jaar 2\OP1\ANL\Retake Tobi\libClient\obj\Debug\net5.0\LibClient.genruntimeconfig.cache

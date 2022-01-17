@@ -185,6 +185,13 @@ namespace LibClient
                 s.Connect(remoteIp);
                 Console.WriteLine($"Socket connected to {s.RemoteEndPoint.ToString()}");
 
+                Message hello = new Message();
+                hello.Type = MessageType.Hello;
+                hello.Content = "";
+                Console.WriteLine("\nHello message created\n");
+                sendMsgClient(hello, remoteIp, s);
+                Console.WriteLine("\nHello message sent\n");
+
 
                 // DIT WAS OM MESSAGES TE VERSTUREN MAAR DAT MOET IN EEN ANDERE FUNCTIE
 

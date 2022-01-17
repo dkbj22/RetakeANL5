@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\LibClient.csproj": {}
+    "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\libClient\\LibClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\LibClient.csproj": {
+    "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\libClient\\LibClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\LibClient.csproj",
+        "projectUniqueName": "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\libClient\\LibClient.csproj",
         "projectName": "LibClient",
-        "projectPath": "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\LibClient.csproj",
+        "projectPath": "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\libClient\\LibClient.csproj",
         "packagesPath": "C:\\Users\\dkbj2\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\obj\\",
+        "outputPath": "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\libClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dkbj2\\AppData\\Roaming\\NuGet\\NuGet.Config",
