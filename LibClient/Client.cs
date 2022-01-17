@@ -95,6 +95,8 @@ namespace LibClient
         protected abstract void createSocketAndConnect();
         public abstract Output handleConntectionAndMessagesToServer();
         protected abstract Message processMessage(Message message);
+
+        //Added by tobi (05-01-2022) V
         protected abstract void sendMsgClient(Message input, IPEndPoint destinationIPEndPoint, Socket sock);
         protected abstract string[] receiveMsgClient(Socket sock);
 
@@ -184,6 +186,8 @@ namespace LibClient
                 Console.WriteLine($"Socket connected to {s.RemoteEndPoint.ToString()}");
 
 
+                // DIT WAS OM MESSAGES TE VERSTUREN MAAR DAT MOET IN EEN ANDERE FUNCTIE
+
                 /*
                 byte[] msg = Encoding.ASCII.GetBytes(stringToSent);
                 int bytesSent = s.Send(msg);
@@ -200,6 +204,7 @@ namespace LibClient
 
             catch (Exception e)
             {
+                Console.WriteLine("Error in createSocketAndConnect");
                 Console.WriteLine(e.Message);
             }
 
@@ -229,7 +234,8 @@ namespace LibClient
                 hello.Content = this.client_id;
 
                 sendMsgClient(hello, serverEndPoint, s);
-
+                receiveMsgClient(s);
+                //s.Close();
             }
             catch (Exception e) 
             {

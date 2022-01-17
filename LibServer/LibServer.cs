@@ -92,6 +92,8 @@ namespace LibServerSolution
 
         protected abstract Message requestDataFromHelpers(string msg);
 
+        protected abstract string[] receiveMsg(Socket sock);
+
     }
 
 
@@ -128,12 +130,14 @@ namespace LibServerSolution
             try
             {
                 serverSocket.Bind(localEndPoint);
-                Console.WriteLine("Waiting for connection...");
                 serverSocket.Listen(settings.ServerListeningQueue);
+                Console.WriteLine("Waiting for connection...");
 
+                //DIT MOET IN EEN ANDERE FUNCTIE V
 
-
+                /*
                 Socket handler = serverSocket.Accept();
+                
                 string recievedString = null;
                 byte[] bytes = null;
 
@@ -148,6 +152,8 @@ namespace LibServerSolution
 
                 byte[] msg = Encoding.ASCII.GetBytes(stringToSent);
                 handler.Send(msg);
+                */
+
             }
 
 
@@ -175,27 +181,31 @@ namespace LibServerSolution
 
 
 
-
-            try
+            while (true)
             {
-                serverSocket.Listen(settings.ServerListeningQueue);
-                Console.WriteLine("\nWaiting for clients... (Listening)");
+                try
+                {
+                    Socket newSock = serverSocket.Accept();
 
+                    string[] typeAndContent = receiveMsg(serverSocket);
+                    Console.WriteLine(typeAndContent);
 
+                    // WORDT GEREGELD IN receiveMsg() V
 
-                int b = serverSocket.Receive(buffer);
-                string data = Encoding.ASCII.GetString(buffer, 0, b);
-                Console.WriteLine(data);
+                    //int b = serverSocket.Receive(buffer);
+                    //string data = Encoding.ASCII.GetString(buffer, 0, b);
+                    //Console.WriteLine(data);
 
+                    //strSendMsg(data);
 
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Something went wrong in the handelListening() from server");
+                    Console.WriteLine(e.Message);
+                    break;
 
-                strSendMsg(data);
-            }
-            catch (Exception e)
-            {
-
-                Console.WriteLine(e.Message);
-
+                }
             }
 
         }
@@ -265,7 +275,7 @@ namespace LibServerSolution
             //report("round:","next to start");
         }
 
-
+        //ZELF GEMAAKTE FUNCTIES ABSTRACT MAKEN (VERGEET OVERRIDE NIET V)
 
         public MessageType typeCheck(string inp)
         {
@@ -325,6 +335,16 @@ namespace LibServerSolution
 
 
             processMessage(msg);
+        }
+
+        protected override string[] receiveMsg(Socket sock)
+        {
+            int receiveBytes = sock.Receive(buffer);
+            string data = Encoding.ASCII.GetString(buffer, 0, receiveBytes);
+            string[] typeAndContent = new string[2];
+            typeAndContent = data.Split(",");
+            Console.WriteLine(typeAndContent[0] + typeAndContent[1] + " - Received from server with receiveMsgClient");
+            return typeAndContent;
         }
     }
 }
