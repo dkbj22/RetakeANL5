@@ -203,7 +203,7 @@ namespace LibServerSolution
                 {
                     Console.WriteLine("Something went wrong in the handelListening() from server");
                     Console.WriteLine(e.Message);
-                    break;
+                    //break;
 
                 }
             }

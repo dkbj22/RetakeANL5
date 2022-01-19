@@ -259,7 +259,7 @@ namespace LibClient
         protected override Message processMessage(Message message)
         {
             Message processedMsgResult = new Message();
-            //todo: To meet the assignment requirement, finish the implementation of this method.
+            //todo.: To meet the assignment requirement, finish the implementation of this method.
             // try
             // {
 
