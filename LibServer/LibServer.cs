@@ -122,37 +122,31 @@ namespace LibServerSolution
             // Extra Note: If failed to connect to helper. Server should retry 3 times.
             // After the 3d attempt the server starts anyway and listen to incoming messages to clients
 
-            string stringToSent = "Server: Hello client";
-
+            
+            // For client
             IPAddress ipAddress = IPAddress.Parse(settings.ServerIPAddress);
             IPEndPoint localEndPoint = new IPEndPoint(ipAddress, settings.ServerPortNumber);
-       
+            //
+
+            // For help server
+            bookHelperSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPAddress bookHelperIpAdress = IPAddress.Parse(settings.BookHelperIPAddress);
+            listeningPoint = new IPEndPoint(bookHelperIpAdress, settings.BookHelperPortNumber);
+            //
+
             try
             {
+                //This is for client
                 serverSocket.Bind(localEndPoint);
                 serverSocket.Listen(settings.ServerListeningQueue);
                 Console.WriteLine("Waiting for connection...");
+                //
 
-                //DIT MOET IN EEN ANDERE FUNCTIE V
-
-                /*
-                Socket handler = serverSocket.Accept();
+                //This is for book help server
+                bookHelperSocket.Connect(listeningPoint);
+                Console.WriteLine("Connecting to bookhelper server");
+                //
                 
-                string recievedString = null;
-                byte[] bytes = null;
-
-
-
-                bytes = new byte[1024];
-                int bytesRecieved = handler.Receive(bytes);
-                recievedString += Encoding.ASCII.GetString(bytes, 0, bytesRecieved);
-                Console.WriteLine(recievedString);
-
-
-
-                byte[] msg = Encoding.ASCII.GetBytes(stringToSent);
-                handler.Send(msg);
-                */
 
             }
 
@@ -181,31 +175,30 @@ namespace LibServerSolution
 
 
 
-            while (true)
+            try
             {
-                try
-                {
-                    Socket newSock = serverSocket.Accept();
 
-                    string[] typeAndContent = receiveMsg(serverSocket);
-                    Console.WriteLine(typeAndContent);
+             // client
+             //Socket newSock = serverSocket.Accept();
 
-                    // WORDT GEREGELD IN receiveMsg() V
+             //string[] typeAndContent = receiveMsg(newSock);
+             //Console.WriteLine(typeAndContent);
 
-                    //int b = serverSocket.Receive(buffer);
-                    //string data = Encoding.ASCII.GetString(buffer, 0, b);
-                    //Console.WriteLine(data);
+             // book helper (messagetype bookinquiry alsof de client die zou hebben gestuurd)
+             Message test = new Message();
+             test.Type = MessageType.BookInquiry;
+             test.Content = "test";
+             processMessage(test);
+                        
 
-                    //strSendMsg(data);
 
-                }
-                catch (Exception e)
-                {
-                    Console.WriteLine("Something went wrong in the handelListening() from server");
-                    Console.WriteLine(e.Message);
-                    //break;
+             }
+             catch (Exception e)
+             {
+             Console.WriteLine("Something went wrong in the handelListening() from server");
+             Console.WriteLine(e.Message);
+                       
 
-                }
             }
 
         }
@@ -221,12 +214,14 @@ namespace LibServerSolution
         {
             Message pmReply = new Message();
 
-            //todo: To meet the assignment requirement, finish the implementation of this method .
 
+            // If the client sends a bookInquiry we need to get the data from the help server 19-1-2022
+            if (message.Type == MessageType.BookInquiry)
+            {
+                pmReply = requestDataFromHelpers(message.Content);
+            }
 
-
-
-
+            // This reply will eventually be the BookInquiry reply V
             return pmReply;
         }
 
@@ -242,16 +237,22 @@ namespace LibServerSolution
             Message HelperReply = new Message();
             //todo: To meet the assignment requirement, finish the implementation of this method .
 
+            try
+            {
+                // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+                // &&---------------------------------------------------------------TO DO----------------------------------------------------------------------------------&&
+                // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+                // here we should send a Message with type bookinquiry and content the booktitle
+                sendMsg(content, bookHelperSocket);   
 
 
-            // try
-            // {
 
-
-
-
-            // }
-            // catch () { }
+            }
+            catch (Exception e) 
+            {
+                
+                Console.WriteLine(e.Message);
+            }
 
 
 
@@ -319,6 +320,16 @@ namespace LibServerSolution
             return removeBegin;
         }
 
+        public void sendMsg(string data, Socket sock)
+        {
+            //This function is for within processMessage() / used for BookInquiry
+            string serializedData = JsonSerializer.Serialize(data);
+            Console.WriteLine(serializedData);
+            byte[] dataInBytes = Encoding.ASCII.GetBytes(serializedData);
+            sock.Send(dataInBytes);
+
+            Console.WriteLine("\n\nDEBUG sendMsg\n\nsending data: " + data + "\nserialized: " + serializedData + "\nbytes: " + dataInBytes);
+        }
 
 
         public void strSendMsg(string data)
@@ -346,5 +357,5 @@ namespace LibServerSolution
             Console.WriteLine(typeAndContent[0] + typeAndContent[1] + " - Received from server with receiveMsgClient");
             return typeAndContent;
         }
-    }
+    }       
 }

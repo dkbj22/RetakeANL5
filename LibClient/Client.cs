@@ -232,7 +232,7 @@ namespace LibClient
                 Message hello = new Message();
                 hello.Type = MessageType.Hello;
                 hello.Content = this.client_id;
-
+                Console.WriteLine(hello.Type + " " + hello.Content);
                 sendMsgClient(hello, serverEndPoint, s);
                 receiveMsgClient(s);
                 //s.Close();

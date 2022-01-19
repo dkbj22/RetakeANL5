@@ -8,6 +8,9 @@ using System.Threading;
 using LibData;
 using Microsoft.Extensions.Configuration;
 
+// added v
+using System.Text;
+
 namespace BookHelperSolution
 {
     public struct Setting                                   
@@ -66,6 +69,19 @@ namespace BookHelperSolution
         public abstract void handelListening();
         protected abstract Message processMessage(Message message);
 
+
+        //Zelfgemaakte functies v
+
+        protected abstract MessageType typeCheck(string inp);
+
+        protected abstract string correctType(string badType);
+
+        protected abstract string correctContent(string badContent);
+
+        protected abstract void strSendMsg(string data);
+
+        protected abstract string[] receiveMsg(Socket sock);
+
     }
 
     class SequentialServerHelper : AbsSequentialServerHelper
@@ -75,7 +91,7 @@ namespace BookHelperSolution
         public IPEndPoint listeningPoint;
         public IPAddress ipAddress;
         public List<BookData> booksList;
-
+        byte[] buffer = new byte[1000];
 
         public SequentialServerHelper() : base()
         {
@@ -154,12 +170,32 @@ namespace BookHelperSolution
         public override void handelListening()
         {
             createSocket();
-            loadDataFromJson();
+            //loadDataFromJson(); doesn't work yet
 
             //todo: To meet the assignment requirement, finish the implementation of this method 
             while (true)
             {
-                break;
+
+                try
+                {
+                    Socket newSock = listener.Accept();
+                    Console.WriteLine("Accepting socket");
+
+                    // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+                    // &&---------------------------------------------------------------TO DO----------------------------------------------------------------------------------&&
+                    // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+                    // here we should receive a message with type bookinquiry and content booktitle v (the conection is there but we are sending wrong data / see libserver)
+                    string[] typeAndContent = receiveMsg(newSock);
+                    Console.WriteLine(typeAndContent);
+                    
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine("Accepting socket error");
+                    Console.WriteLine(e.Message);
+                    break;
+                }
+                
             }
 
 
@@ -183,6 +219,80 @@ namespace BookHelperSolution
 
             // }
             return reply;
+        }
+
+
+
+        //ZELFGEMAAKTE FUNCTIES -------------------------------------------------------------------------------
+
+        protected override MessageType typeCheck(string inp)
+        {
+            MessageType ret;
+            try
+            {
+                if (inp == "0")
+                    ret = MessageType.Hello;
+                if (inp == "1")
+                    ret = MessageType.Welcome;
+                if (inp == "2")
+                    ret = MessageType.BookInquiry;
+                if (inp == "3")
+                    ret = MessageType.BookInquiryReply;
+                if (inp == "4")
+                    ret = MessageType.Error;
+                if (inp == "5")
+                    ret = MessageType.NotFound;
+                else ret = MessageType.Error;
+            }
+            catch (Exception e) { Console.WriteLine(e.Message); ret = MessageType.Error; }
+
+            return ret;
+        }
+
+
+
+        protected override string correctType(string badType)
+        {
+            string removeBegin = badType.Remove(0, 5);
+            return removeBegin;
+        }
+
+
+
+        protected override string correctContent(string badContent)
+        {
+            string removedEnd = badContent.Remove(badContent.Length - 2);
+            string removeBegin = removedEnd.Remove(0, 11);
+            Console.WriteLine(removeBegin);
+            return removeBegin;
+        }
+
+
+
+        protected override void strSendMsg(string data)
+        {
+            string[] typeAndContent = new string[2];
+            typeAndContent = data.Split(",");
+
+
+
+            Message msg = new Message();
+            msg.Type = typeCheck(correctType(typeAndContent[0]));
+            msg.Content = correctContent(typeAndContent[1]);
+
+
+
+            processMessage(msg);
+        }
+
+        protected override string[] receiveMsg(Socket sock)
+        {
+            int receiveBytes = sock.Receive(buffer);
+            string data = Encoding.ASCII.GetString(buffer, 0, receiveBytes);
+            string[] typeAndContent = new string[2];
+            typeAndContent = data.Split(",");
+            Console.WriteLine(typeAndContent[0] + typeAndContent[1] + " - Received from server with receiveMsgClient");
+            return typeAndContent;
         }
     }
 }
