@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\libclient\\LibClient.csproj": {}
+    "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\LibClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\libclient\\LibClient.csproj": {
+    "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\LibClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\libclient\\LibClient.csproj",
+        "projectUniqueName": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\LibClient.csproj",
         "projectName": "LibClient",
-        "projectPath": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\libclient\\LibClient.csproj",
+        "projectPath": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\LibClient.csproj",
         "packagesPath": "C:\\Users\\tobiz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\libclient\\obj\\",
+        "outputPath": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\tobiz\\AppData\\Roaming\\NuGet\\NuGet.Config",

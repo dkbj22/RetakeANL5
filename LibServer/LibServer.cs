@@ -323,7 +323,12 @@ namespace LibServerSolution
         public void sendMsg(string data, Socket sock)
         {
             //This function is for within processMessage() / used for BookInquiry
-            string serializedData = JsonSerializer.Serialize(data);
+            Message BookInquiry = new Message();
+            BookInquiry.Content = data;
+            BookInquiry.Type = MessageType.BookInquiry;
+
+
+            string serializedData = JsonSerializer.Serialize(BookInquiry);
             Console.WriteLine(serializedData);
             byte[] dataInBytes = Encoding.ASCII.GetBytes(serializedData);
             sock.Send(dataInBytes);

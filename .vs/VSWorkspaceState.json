@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\LibClient"
+    "\\LibClient",
+    "\\LibServer"
   ],
-  "SelectedNode": "\\LibClient\\Client.cs",
+  "SelectedNode": "\\LibServer\\LibServer.cs",
   "PreviewInSolutionExplorer": false
 }
