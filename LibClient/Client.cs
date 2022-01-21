@@ -232,7 +232,11 @@ namespace LibClient
                 Message hello = new Message();
                 hello.Type = MessageType.Hello;
                 hello.Content = this.client_id;
+<<<<<<< HEAD
 
+=======
+                Console.WriteLine(hello.Type + " " + hello.Content);
+>>>>>>> origin/CodeTester
                 sendMsgClient(hello, serverEndPoint, s);
                 receiveMsgClient(s);
                 //s.Close();
@@ -259,7 +263,7 @@ namespace LibClient
         protected override Message processMessage(Message message)
         {
             Message processedMsgResult = new Message();
-            //todo: To meet the assignment requirement, finish the implementation of this method.
+            //todo.: To meet the assignment requirement, finish the implementation of this method.
             // try
             // {
 

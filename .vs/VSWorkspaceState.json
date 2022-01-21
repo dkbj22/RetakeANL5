@@ -1,8 +1,15 @@
 {
   "ExpandedNodes": [
     "",
+<<<<<<< HEAD
     "\\LibClient"
   ],
   "SelectedNode": "\\LibClient\\Client.cs",
+=======
+    "\\LibClient",
+    "\\LibServer"
+  ],
+  "SelectedNode": "\\LibServer\\LibServer.cs",
+>>>>>>> origin/CodeTester
   "PreviewInSolutionExplorer": false
 }

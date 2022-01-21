@@ -1,6 +1,7 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD
     "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibBookHelper\\BookHelper.csproj": {}
   },
   "projects": {
@@ -15,6 +16,22 @@
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dkbj2\\AppData\\Roaming\\NuGet\\NuGet.Config",
+=======
+    "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibBookHelper\\BookHelper.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibBookHelper\\BookHelper.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibBookHelper\\BookHelper.csproj",
+        "projectName": "BookHelper",
+        "projectPath": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibBookHelper\\BookHelper.csproj",
+        "packagesPath": "C:\\Users\\tobiz\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibBookHelper\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\tobiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+>>>>>>> origin/CodeTester
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

@@ -122,6 +122,7 @@ namespace LibServerSolution
             // Extra Note: If failed to connect to helper. Server should retry 3 times.
             // After the 3d attempt the server starts anyway and listen to incoming messages to clients
 
+<<<<<<< HEAD
             string stringToSent = "Server: Hello client";
 
             IPAddress ipAddress = IPAddress.Parse(settings.ServerIPAddress);
@@ -153,6 +154,33 @@ namespace LibServerSolution
                 byte[] msg = Encoding.ASCII.GetBytes(stringToSent);
                 handler.Send(msg);
                 */
+=======
+            
+            // For client
+            IPAddress ipAddress = IPAddress.Parse(settings.ServerIPAddress);
+            IPEndPoint localEndPoint = new IPEndPoint(ipAddress, settings.ServerPortNumber);
+            //
+
+            // For help server
+            bookHelperSocket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            IPAddress bookHelperIpAdress = IPAddress.Parse(settings.BookHelperIPAddress);
+            listeningPoint = new IPEndPoint(bookHelperIpAdress, settings.BookHelperPortNumber);
+            //
+
+            try
+            {
+                //This is for client
+                serverSocket.Bind(localEndPoint);
+                serverSocket.Listen(settings.ServerListeningQueue);
+                Console.WriteLine("Waiting for connection...");
+                //
+
+                //This is for book help server
+                bookHelperSocket.Connect(listeningPoint);
+                Console.WriteLine("Connecting to bookhelper server");
+                //
+                
+>>>>>>> origin/CodeTester
 
             }
 
@@ -181,6 +209,7 @@ namespace LibServerSolution
 
 
 
+<<<<<<< HEAD
             while (true)
             {
                 try
@@ -206,6 +235,32 @@ namespace LibServerSolution
                     break;
 
                 }
+=======
+            try
+            {
+
+             // client
+             //Socket newSock = serverSocket.Accept();
+
+             //string[] typeAndContent = receiveMsg(newSock);
+             //Console.WriteLine(typeAndContent);
+
+             // book helper (messagetype bookinquiry alsof de client die zou hebben gestuurd)
+             Message test = new Message();
+             test.Type = MessageType.BookInquiry;
+             test.Content = "test";
+             processMessage(test);
+                        
+
+
+             }
+             catch (Exception e)
+             {
+             Console.WriteLine("Something went wrong in the handelListening() from server");
+             Console.WriteLine(e.Message);
+                       
+
+>>>>>>> origin/CodeTester
             }
 
         }
@@ -220,13 +275,22 @@ namespace LibServerSolution
         protected override Message processMessage(Message message)
         {
             Message pmReply = new Message();
+<<<<<<< HEAD
 
             //todo: To meet the assignment requirement, finish the implementation of this method .
 
 
+=======
+>>>>>>> origin/CodeTester
 
 
+            // If the client sends a bookInquiry we need to get the data from the help server 19-1-2022
+            if (message.Type == MessageType.BookInquiry)
+            {
+                pmReply = requestDataFromHelpers(message.Content);
+            }
 
+            // This reply will eventually be the BookInquiry reply V
             return pmReply;
         }
 
@@ -242,6 +306,7 @@ namespace LibServerSolution
             Message HelperReply = new Message();
             //todo: To meet the assignment requirement, finish the implementation of this method .
 
+<<<<<<< HEAD
 
 
             // try
@@ -252,6 +317,26 @@ namespace LibServerSolution
 
             // }
             // catch () { }
+=======
+            try
+            {
+                // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+                // &&---------------------------------------------------------------TO DO----------------------------------------------------------------------------------&&
+                // &&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+                // here we should send a Message with type bookinquiry and content the booktitle
+                sendMsg(content, bookHelperSocket);   
+
+
+
+            }
+            catch (Exception e) 
+            {
+                
+                Console.WriteLine(e.Message);
+            }
+
+
+>>>>>>> origin/CodeTester
 
 
 
@@ -276,6 +361,7 @@ namespace LibServerSolution
         }
 
         //ZELF GEMAAKTE FUNCTIES ABSTRACT MAKEN (VERGEET OVERRIDE NIET V)
+<<<<<<< HEAD
 
         public MessageType typeCheck(string inp)
         {
@@ -303,6 +389,35 @@ namespace LibServerSolution
 
 
 
+=======
+
+        public MessageType typeCheck(string inp)
+        {
+            MessageType ret;
+            try
+            {
+                if (inp == "0")
+                    ret = MessageType.Hello;
+                if (inp == "1")
+                    ret = MessageType.Welcome;
+                if (inp == "2")
+                    ret = MessageType.BookInquiry;
+                if (inp == "3")
+                    ret = MessageType.BookInquiryReply;
+                if (inp == "4")
+                    ret = MessageType.Error;
+                if (inp == "5")
+                    ret = MessageType.NotFound;
+                else ret = MessageType.Error;
+            }
+            catch (Exception e) { Console.WriteLine(e.Message); ret = MessageType.Error; }
+
+            return ret;
+        }
+
+
+
+>>>>>>> origin/CodeTester
         public string correctType(string badType)
         {
             string removeBegin = badType.Remove(0, 5);
@@ -319,6 +434,24 @@ namespace LibServerSolution
             return removeBegin;
         }
 
+<<<<<<< HEAD
+=======
+        public void sendMsg(string data, Socket sock)
+        {
+            //This function is for within processMessage() / used for BookInquiry
+            Message BookInquiry = new Message();
+            BookInquiry.Content = data;
+            BookInquiry.Type = MessageType.BookInquiry;
+
+
+            string serializedData = JsonSerializer.Serialize(BookInquiry);
+            Console.WriteLine(serializedData);
+            byte[] dataInBytes = Encoding.ASCII.GetBytes(serializedData);
+            sock.Send(dataInBytes);
+
+            Console.WriteLine("\n\nDEBUG sendMsg\n\nsending data: " + data + "\nserialized: " + serializedData + "\nbytes: " + dataInBytes);
+        }
+>>>>>>> origin/CodeTester
 
 
         public void strSendMsg(string data)
@@ -346,5 +479,9 @@ namespace LibServerSolution
             Console.WriteLine(typeAndContent[0] + typeAndContent[1] + " - Received from server with receiveMsgClient");
             return typeAndContent;
         }
+<<<<<<< HEAD
     }
+=======
+    }       
+>>>>>>> origin/CodeTester
 }
