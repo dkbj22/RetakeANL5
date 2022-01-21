@@ -178,7 +178,8 @@ namespace LibServerSolution
             try
             {
 
-             // client
+
+             // client DANIEL
              //Socket newSock = serverSocket.Accept();
 
              //string[] typeAndContent = receiveMsg(newSock);
@@ -187,7 +188,7 @@ namespace LibServerSolution
              // book helper (messagetype bookinquiry alsof de client die zou hebben gestuurd)
              Message test = new Message();
              test.Type = MessageType.BookInquiry;
-             test.Content = "test";
+             test.Content = "Book title";
              processMessage(test);
                         
 
@@ -218,11 +219,12 @@ namespace LibServerSolution
             // If the client sends a bookInquiry we need to get the data from the help server 19-1-2022
             if (message.Type == MessageType.BookInquiry)
             {
-                pmReply = requestDataFromHelpers(message.Content);
+                pmReply = requestDataFromHelpers(message.Content); 
             }
 
             // This reply will eventually be the BookInquiry reply V
-            return pmReply;
+
+            return pmReply; //Message die teruggestuurd kan worden naar cliënt
         }
 
 
