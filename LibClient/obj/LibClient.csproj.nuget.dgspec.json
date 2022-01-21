@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\LibClient.csproj": {}
+    "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\LibClient.csproj": {}
   },
   "projects": {
-    "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\LibClient.csproj": {
+    "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\LibClient.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\LibClient.csproj",
+        "projectUniqueName": "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\LibClient.csproj",
         "projectName": "LibClient",
-        "projectPath": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\LibClient.csproj",
-        "packagesPath": "C:\\Users\\tobiz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\obj\\",
+        "projectPath": "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\LibClient.csproj",
+        "packagesPath": "C:\\Users\\dkbj2\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\tobiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\dkbj2\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -68,7 +68,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.404\\RuntimeIdentifierGraph.json"
         }
       }
     }
