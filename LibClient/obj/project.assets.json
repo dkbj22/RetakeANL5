@@ -451,16 +451,11 @@
     ]
   },
   "packageFolders": {
-<<<<<<< HEAD
     "C:\\Users\\dkbj2\\.nuget\\packages\\": {}
-=======
-    "C:\\Users\\tobiz\\.nuget\\packages\\": {}
->>>>>>> origin/CodeTester
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-<<<<<<< HEAD
       "projectUniqueName": "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\LibClient.csproj",
       "projectName": "LibClient",
       "projectPath": "C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\LibClient.csproj",
@@ -469,16 +464,6 @@
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\dkbj2\\AppData\\Roaming\\NuGet\\NuGet.Config",
-=======
-      "projectUniqueName": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\LibClient.csproj",
-      "projectName": "LibClient",
-      "projectPath": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\LibClient.csproj",
-      "packagesPath": "C:\\Users\\tobiz\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\tobiz\\Source\\Repos\\RetakeANL5\\LibClient\\obj\\",
-      "projectStyle": "PackageReference",
-      "configFilePaths": [
-        "C:\\Users\\tobiz\\AppData\\Roaming\\NuGet\\NuGet.Config",
->>>>>>> origin/CodeTester
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -535,5 +520,13 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.403\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\dkbj2\\Documents\\Studie\\Jaar 2\\OP1\\ANL\\Retake Tobi\\LibClient\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }

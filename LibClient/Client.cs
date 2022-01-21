@@ -232,11 +232,7 @@ namespace LibClient
                 Message hello = new Message();
                 hello.Type = MessageType.Hello;
                 hello.Content = this.client_id;
-<<<<<<< HEAD
-
-=======
                 Console.WriteLine(hello.Type + " " + hello.Content);
->>>>>>> origin/CodeTester
                 sendMsgClient(hello, serverEndPoint, s);
                 receiveMsgClient(s);
                 //s.Close();
